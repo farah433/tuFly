@@ -15,7 +15,27 @@ class ChooseSeat extends StatefulWidget {
 
 class _ChooseSeatState extends State<ChooseSeat> {
 
-  
+  var seatObject ;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   //The Change selected to Booked on press
   setSelectedToBooked(){
@@ -55,92 +75,94 @@ class _ChooseSeatState extends State<ChooseSeat> {
       ),
       body: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
-        child: Column(
-          children: [
-            SizedBox(height: 10,),
-            Row(
-              children: [
-                Container(
-                  width: 270,
-                  height: 700,
-                  decoration: BoxDecoration(
-                    color: kLastFlightorange.withBlue(100),
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 10,),
+              Row(
+                children: [
+                  Container(
+                    width: 270,
+                    height: 700,
+                    decoration: BoxDecoration(
+                      color: kLastFlightorange.withBlue(100),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(100), topRight: Radius.circular(100)),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 30,),
+                        Text(newNewDate, style: kfightName.copyWith(fontSize: 16)),
+                        Text(newDepTime, style: kfightName.copyWith(fontSize: 16)),
+                        SizedBox(height: 10,),
+                        Row(
+                          children: [
+                            Expanded(child: SeatDeignStream(),),
+                            Expanded(child: SeatDeignStream(),),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CircleAvatar(radius: 8, backgroundColor: Colors.white,),
+                            Text(' Empty', style: kBodyTextStyle.copyWith(fontSize: 14),),
+                            SizedBox(width: 8,),
+                            CircleAvatar(radius: 8, backgroundColor: kDorange,),
+                            Text(' Selected', style: kBodyTextStyle.copyWith(fontSize: 14),),
+                            SizedBox(width: 8,),
+                            CircleAvatar(radius: 8, backgroundColor: kReservedSeat,),
+                            Text(' Reserved', style: kBodyTextStyle.copyWith(fontSize: 14),),
+                          ],
+                        ),
+                        ],
+                    ),
                   ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 30,),
-                      Text(newNewDate, style: kfightName.copyWith(fontSize: 16)),
-                      Text(newDepTime, style: kfightName.copyWith(fontSize: 16)),
-                      SizedBox(height: 10,),
-                      Row(
-                        children: [
-                          Expanded(child: SeatDeignStream(),),
-                          Expanded(child: SeatDeignStream(),),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          CircleAvatar(radius: 8, backgroundColor: Colors.white,),
-                          Text(' Empty', style: kBodyTextStyle.copyWith(fontSize: 14),),
-                          SizedBox(width: 8,),
-                          CircleAvatar(radius: 8, backgroundColor: kDorange,),
-                          Text(' Selected', style: kBodyTextStyle.copyWith(fontSize: 14),),
-                          SizedBox(width: 8,),
-                          CircleAvatar(radius: 8, backgroundColor: kReservedSeat,),
-                          Text(' Reserved', style: kBodyTextStyle.copyWith(fontSize: 14),),
-                        ],
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 55,
+                          width: 55,
+                          decoration: BoxDecoration(
+                            color: kPorange.withAlpha(100),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Image.asset('images/$newCompanyName.png'),
+                          ),
+                        ),
+                        Text(newCompanyName, style: kfightNameB),
+                        SizedBox(height: 20),
+                        Text(newFlightNum, style: kfightNameB.copyWith(fontWeight: FontWeight.w300),),
+                        Text('Flight no.', style: kfightNameB),
+                        SizedBox(height: 20),
+                        Text(newFromWhere, style: kfightName),
+                        Icon(Icons.flight_land_rounded,color: kBorange,),
+                        Text(newToWhere, style: kfightName),
+                        SizedBox(height: 20),
+                        SizedBox(height: 20),
+                        Text('D48', style: kfightName.copyWith(fontSize: 30, color:kPorange,fontWeight: FontWeight.w300),),
+                        Text('D49', style: kfightName.copyWith(fontSize: 30,color:kPorange, fontWeight: FontWeight.w300),),
+                        Text('Seats', style: kfightNameB),
+                        SizedBox(height: 20),
+                          Text('Ksh', style: kfightNameB.copyWith(fontSize:  20),),
+                          SizedBox(width: 3,),
+                          Text(newPrice, style: kfightName.copyWith(fontSize: 30,color:kPorange, fontWeight: FontWeight.w300),),
+                        Text('Price', style: kfightNameB),
                       ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        height: 55,
-                        width: 55,
-                        decoration: BoxDecoration(
-                          color: kPorange.withAlpha(100),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Image.asset('images/$newCompanyName.png'),
-                        ),
-                      ),
-                      Text(newCompanyName, style: kfightNameB),
-                      SizedBox(height: 20),
-                      Text(newFlightNum, style: kfightNameB.copyWith(fontWeight: FontWeight.w300),),
-                      Text('Flight no.', style: kfightNameB),
-                      SizedBox(height: 20),
-                      Text(newFromWhere, style: kfightName),
-                      Icon(Icons.flight_land_rounded,color: kBorange,),
-                      Text(newToWhere, style: kfightName),
-                      SizedBox(height: 20),
-                      SizedBox(height: 20),
-                      Text('D48', style: kfightName.copyWith(fontSize: 30, color:kPorange,fontWeight: FontWeight.w300),),
-                      Text('D49', style: kfightName.copyWith(fontSize: 30,color:kPorange, fontWeight: FontWeight.w300),),
-                      Text('Seats', style: kfightNameB),
-                      SizedBox(height: 20),
-                        Text('Ksh', style: kfightNameB.copyWith(fontSize:  20),),
-                        SizedBox(width: 3,),
-                        Text(newPrice, style: kfightName.copyWith(fontSize: 30,color:kPorange, fontWeight: FontWeight.w300),),
-                      Text('Price', style: kfightNameB),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10,),
-            BottomButton('Next', kBorange, (){
-              setSelectedToBooked();
-              Navigator.pushNamed(context, MpesaNumberScreen.id);
-              }),
-          ],
+                ],
+              ),
+              SizedBox(height: 10,),
+              BottomButton('Next', kBorange, (){
+              // updateToBooked();
+                Navigator.pushNamed(context, MpesaNumberScreen.id);
+                }),
+            ],
+          ),
         ),
         ),
     );
@@ -198,14 +220,21 @@ class SeatDeignStream extends StatelessWidget {
         final seats = snapshot.data.docs;
         List <SeatContainer> SeatContainers = [];
         for(var seat in seats){
-          final seatID = seat['id'];
+          final seatId = seat['id'];
           final isItAvailable = seat['isAvailable'];
           final isItSelected = seat['isSelected'];
           final isItBooked = seat['isBooked'];
-          final seatContainer = SeatContainer(seatID, isItAvailable, isItSelected, isItBooked,);
+          final seatContainer = SeatContainer(seatId, isItAvailable, isItSelected, isItBooked,()async{
+            await FirebaseFirestore.instance.collection('seats').doc(seatId).update({"isBooked": true});
+
+            Fluttertoast.showToast(msg: 'Seat has been booked!', gravity: ToastGravity.TOP);
+          });
+
+
           SeatContainers.add(seatContainer);
 
         }
+
         return Container(
       child: GridView.builder(
         shrinkWrap: true,
@@ -213,7 +242,7 @@ class SeatDeignStream extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3,),
         itemCount: 36,
         itemBuilder:(context, index) {
-          return ListView(children: SeatContainers);
+          return ListView(children: SeatContainers,);
         }
         ),
     );
@@ -221,37 +250,20 @@ class SeatDeignStream extends StatelessWidget {
       );
   }
 
-  //updating to isSelected onPressed
-  void isSeatSelected(id)async {
-
-    await FirebaseFirestore.instance.collection('Seats').doc(id).update({'isSelected' : true});
-    Fluttertoast.showToast(msg: 'You selected seat $id!', gravity: ToastGravity.TOP);
-  }
-  void isSeatUnSelected(id)async {
-
-    await FirebaseFirestore.instance.collection('Seats').doc(id).update({'isSelected' : false});
-    Fluttertoast.showToast(msg: 'You unselected seat $id!', gravity: ToastGravity.TOP);
-  }
 
 
- // Option. 1
 
-  void updateToBooked(id) async {
+  // Option. 1
+
+  void updateToBooked(seatId) async {
     //IF SEAT IS SELECTED AND PAYMENT MADE THEN => BOOK
-    if(isSeatSelected == true){
 
-      await FirebaseFirestore.instance.collection('seats').doc(id).update({'isBooked': true});
 
-      Fluttertoast.showToast(msg: 'Seat has been booked!', gravity: ToastGravity.TOP);
-
-    }
-    else if(isSeatUnSelected == false){
-      await FirebaseFirestore.instance.collection('seats').doc(id).update({'isBooked': false});
+      await FirebaseFirestore.instance.collection('seats').doc(seatId).update({'isBooked': true});
 
       Fluttertoast.showToast(msg: 'Seat has been booked!', gravity: ToastGravity.TOP);
 
-    }
-   }
+  }
 
   //Option. 2
 

@@ -150,7 +150,7 @@ class _AddFlightsScreenState extends State<AddFlightsScreen> {
         'seats' : seatController.text.trim(),
       });
         Navigator.pop(context);
-        Fluttertoast.showToast(msg: 'The Flight has been successifully added.', gravity: ToastGravity.TOP);
+        Fluttertoast.showToast(msg: 'The Flight has been successfully added.', gravity: ToastGravity.TOP);
       }else {
         Fluttertoast.showToast(msg: 'One of the fields is Empty.', gravity: ToastGravity.TOP);
       }
